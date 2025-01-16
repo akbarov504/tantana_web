@@ -4,7 +4,7 @@ from models.models import db, login_manager
 root = Flask(__name__)
 root.config['UPLOAD_FOLDER'] = "static/uploads"
 root.config["SECRET_KEY"] = "342afc9ac23241fa1372f913"
-root.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:akbarov@localhost:5432/tantana"
+root.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:akbarov@127.0.0.1:5432/tantana"
 root.config["WTF_CSRF_ENABLED"] = False
 root.config["WTF_CSRF_SECRET_KEY"] = "fgkgsd23gkfsdk32fds4r3t43t43"
 
