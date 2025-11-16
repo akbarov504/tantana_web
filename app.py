@@ -1,5 +1,6 @@
 from flask import Flask
-from models.models import db, login_manager
+from models.models import db, migrate, login_manager
+from models.models import User, ProfileCategory, Profile, ProfileImage, ProfileSave, Slider, Banner, Calendar, Chat, Message, Respublika, Viloyat, Tuman
 
 root = Flask(__name__)
 root.config['UPLOAD_FOLDER'] = "static/uploads"
@@ -9,6 +10,7 @@ root.config["WTF_CSRF_ENABLED"] = False
 root.config["WTF_CSRF_SECRET_KEY"] = "fgkgsd23gkfsdk32fds4r3t43t43"
 
 db.init_app(root)
+migrate.init_app(root, db)
 login_manager.init_app(root)
 
 with root.app_context():
@@ -21,4 +23,4 @@ if __name__ == "__main__":
     from routes.profile_route import *
     from routes.calendar_route import *
     from routes.notification_route import *
-    root.run(debug = True, port=2222, host='0.0.0.0')
+    root.run(debug=False, port=80, host='0.0.0.0')

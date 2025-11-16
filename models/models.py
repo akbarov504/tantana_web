@@ -1,8 +1,10 @@
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from flask_login import LoginManager, UserMixin
 
 db = SQLAlchemy()
+migrate = Migrate()
 login_manager = LoginManager()
 
 @login_manager.user_loader
